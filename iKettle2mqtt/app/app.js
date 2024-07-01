@@ -113,17 +113,6 @@ myKettle.connect().then(function(){
     console.log("Publishing homeassistant auto discovery " + JSON.stringify(levelSensorConfig));
     client.publish(dicoveryPrefix + "/sensor/iKettle_" + uniqueKettleID + "/config",JSON.stringify(levelSensorConfig), messageOptions);
   }
-     var ConnectedConfig = {
-      "name": kettleName + " client.connected ",
-      "unique_id": uniqueKettleID + "client.connected ",
-      "state_topic": `iKettle/${uniqueKettleID}/client.connected `,
-      "device_class":"connectivity"
-    }
-     
-    console.log("Publishing homeassistant auto discovery " + JSON.stringify(ConnectedConfig));
-    client.publish(dicoveryPrefix + "/sensor/iKettle_" + uniqueKettleID + "/config",JSON.stringify(ConnectedConfig), messageOptions);
-  }
-	
 	
 });
 
