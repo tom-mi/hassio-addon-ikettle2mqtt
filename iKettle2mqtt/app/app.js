@@ -142,7 +142,7 @@ myKettle.on("statusMessage",function(status){
     client.publish(`iKettle/${uniqueKettleID}/waterlevelLiters`, `${status.waterlevelLiters}`);	  
   }
 })
-else {
+  if (client.connected == false){
    client.publish(`iKettle/${uniqueKettleID}/isConnected`, client.connected ? "true":"false");
 }
 client.on("connect",function(){	
