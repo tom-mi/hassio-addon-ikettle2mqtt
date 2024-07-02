@@ -142,7 +142,9 @@ myKettle.on("statusMessage",function(status){
     client.publish(`iKettle/${uniqueKettleID}/waterlevelLiters`, `${status.waterlevelLiters}`);	  
   }
 })
-
+else {
+   client.publish(`iKettle/${uniqueKettleID}/isConnected`, client.connected ? "true":"false");
+}
 client.on("connect",function(){	
   console.log("Mqtt connected");
 });
