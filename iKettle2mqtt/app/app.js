@@ -138,6 +138,7 @@ myKettle.on("statusMessage",function(status){
     client.publish(`iKettle/${uniqueKettleID}/status`,JSON.stringify(status));
     client.publish(`iKettle/${uniqueKettleID}/temperature`, `${status.temperature}`);
     client.publish(`iKettle/${uniqueKettleID}/onBase`, status.onBase ? "true":"false");
+    client.publish(`iKettle/${uniqueKettleID}/isConnected`, client.connected ? "true":"false");	  
     client.publish(`iKettle/${uniqueKettleID}/waterlevelLiters`, `${status.waterlevelLiters}`);	  
   }
 })
