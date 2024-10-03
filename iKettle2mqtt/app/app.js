@@ -25,6 +25,7 @@ var host = hassio_options.kettleIP;
 var kettleName = hassio_options.kettleName;
 var uniqueKettleID = hassio_options.kettleUniqueID;
 var heatingTo = 0;
+var debug_logs = hassio_options.debugLogs || false;
 
 //Check if enough data to actually start up
 if (host === "your_ip_here" || kettleName === "" || uniqueKettleID === "" || mqttServer === ""){
@@ -128,7 +129,9 @@ myKettle.connect().then(function(){
 });
 
 myKettle.on("statusMessage",function(status){
-  console.log("Status:" + JSON.stringify(status));
+  if (debug_logs) {
+    console.log("Status:" + JSON.stringify(status));
+  }
   if (client.connected == true){
     if (!status.heating) heatingTo = 0;
     client.publish(`iKettle/${uniqueKettleID}/heating`, status.heating ? "on":"off");

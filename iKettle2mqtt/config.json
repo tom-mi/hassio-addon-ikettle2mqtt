@@ -22,7 +22,8 @@
     "mqttPassword": "",
     "discoveryPrefix": "homeassistant",
     "discoveryEnabled": true,
-    "additionalTemperatures": [70,80,90,100]
+    "additionalTemperatures": [70,80,90,100],
+    "debugLogs": false
   },
   "schema": {
     "kettleIP": "str",
@@ -33,6 +34,7 @@
     "mqttPassword": "str?",
     "discoveryPrefix": "str?",
     "discoveryEnabled": "bool?",
-    "additionalTemperatures": ["int(50,100)"]
+    "additionalTemperatures": ["int(50,100)"],
+    "debugLogs": "bool?"
   }
 }
